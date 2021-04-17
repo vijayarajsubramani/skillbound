@@ -8,27 +8,29 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {environment} from '../environments/environment'
-import {AngularFireModule} from 'angularfire2'
-import {AngularFirestoreModule} from 'angularfire2/firestore'
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-
-  ],
+  declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,FlexLayoutModule,FormsModule,ReactiveFormsModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
-    
-    
+
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFirestoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
