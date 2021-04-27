@@ -1,30 +1,28 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
-import  auth  from 'firebase/app';
-
-
+import {AngularFireAuth} from '@angular/fire/auth'
 @Injectable({
   providedIn: 'root'
 })
-export class GoogleAuthServiceService {
+export class FirebaseService {
 
-  constructor(public af: AngularFireAuth) { }
-
-  GoogleAuth() {
-    return this.AuthLogin(new auth.auth.GoogleAuthProvider());
-  }  
-
-  // Auth logic to run auth providers
-  AuthLogin(provider:any) {
-    return this.af.signInWithPopup(provider)
-    // return this.af.auth.signInWithPopup(provider)
-    .then((result) => {
-        console.log('You have been successfully logged in!')
-    }).catch((error) => {
-        console.log(error)
+  isLoggedIn = false
+  constructor(public firebaseAuth : AngularFireAuth) { }
+  async signin(email: string, password : string){
+    await this.firebaseAuth.signInWithEmailAndPassword(email,password)
+    .then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
     })
   }
-
-
-
+  async signup(email: string, password : string){
+    await this.firebaseAuth.createUserWithEmailAndPassword(email,password)
+    .then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
+    })
+  }
+  logout(){
+    this.firebaseAuth.signOut()
+    localStorage.removeItem('user')
+  }
 }

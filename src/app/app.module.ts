@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -26,9 +25,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
-    // AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<!-- <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title></mat-card-title>
@@ -12,10 +12,24 @@
           <input type="password" matInput placeholder="Password">
         </mat-form-field>
       </mat-card-content>
-      <button (click)="auth.GoogleAuth()" mat-stroked-button color="accent" class="btn-block">Log in</button>
+      <button mat-stroked-button color="accent" class="btn-block">Log in</button>
     </form>
   </mat-card>
+</div> -->
+<!-- <div *ngIf="!isSignedIn">
+  <h2>Sign up</h2>
+  <input type="text" #emailSignup/>
+  <input type="text" #passwordSignup/>
+  <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign up</button>
 </div>
+<hr>
+<div *ngIf="!isSignedIn">
+  <h2>Sign In</h2>
+  <input type="text" #email/>
+  <input type="text" #password/>
+  <button (click)="onSignin(email.value,password.value)">Sign in</button>
+</div>
+<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home> -->
 
 
 
